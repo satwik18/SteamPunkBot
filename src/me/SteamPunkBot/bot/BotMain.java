@@ -1,6 +1,9 @@
 package me.SteamPunkBot.bot;
 
+import me.SteamPunkBot.bot.command.CreateCharacterCommand;
+import me.SteamPunkBot.bot.command.CreateProfileCommand;
 import me.SteamPunkBot.bot.command.HelloCommand;
+import me.SteamPunkBot.bot.command.IdCommand;
 import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.JDABuilder;
@@ -20,6 +23,9 @@ public class BotMain {
 
         EventListener listener = new EventListener();
         listener.addCommand(new HelloCommand());
+        listener.addCommand(new IdCommand());
+        listener.addCommand(new CreateCharacterCommand());
+        listener.addCommand(new CreateProfileCommand());
         jda.addEventListener(listener);
     }
 }

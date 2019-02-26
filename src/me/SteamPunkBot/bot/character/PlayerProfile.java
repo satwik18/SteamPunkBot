@@ -2,6 +2,7 @@ package me.SteamPunkBot.bot.character;
 
 import me.SteamPunkBot.bot.game.GameProperties;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
