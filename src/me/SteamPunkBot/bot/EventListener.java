@@ -9,7 +9,7 @@ public class EventListener {
     private List<Command> commandList;
 
     public EventListener() {
-        commandList = new ArrayList<Command>();
+        commandList = new ArrayList<>();
     }
 
     public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
