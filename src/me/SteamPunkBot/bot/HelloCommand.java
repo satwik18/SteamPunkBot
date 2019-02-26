@@ -1,5 +1,6 @@
 package me.SteamPunkBot.bot;
 
+import me.SteamPunkBot.bot.command.Command;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 
 public class HelloCommand extends Command {
