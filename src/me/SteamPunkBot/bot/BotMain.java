@@ -16,5 +16,9 @@ public class BotMain {
         Scanner reader = new Scanner(System.in);
         String token = reader.nextLine();
         jda = new JDABuilder(AccountType.BOT).setToken(token).build();
+
+        EventListener listener = new EventListener();
+        listener.addCommand(new HelloCommand());
+        jda.addEventListener(listener);
     }
 }

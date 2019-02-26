@@ -1,11 +1,12 @@
 package me.SteamPunkBot.bot;
 
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class EventListener {
+public class EventListener extends ListenerAdapter {
     private List<Command> commandList;
 
     public EventListener() {
@@ -13,6 +14,7 @@ public class EventListener {
     }
 
     public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
+        event.getChannel().sendMessage("test");
         String[] args = event.getMessage().getContentRaw().split(" ");
 
         if(!event.getMember().getUser().isBot())
