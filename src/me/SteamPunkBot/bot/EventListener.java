@@ -14,7 +14,6 @@ public class EventListener extends ListenerAdapter {
     }
 
     public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
-        event.getChannel().sendMessage("test");
         String[] args = event.getMessage().getContentRaw().split(" ");
 
         if(!event.getMember().getUser().isBot())
