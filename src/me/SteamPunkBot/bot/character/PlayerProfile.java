@@ -1,7 +1,9 @@
 package me.SteamPunkBot.bot.character;
 
 import me.SteamPunkBot.bot.game.GameProperties;
+import net.dv8tion.jda.core.entities.TextChannel;
 
+import javax.xml.soap.Text;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +13,8 @@ public class PlayerProfile implements Serializable {
     private String id;
     private String name;
     private List<PlayerCharacter> characterList;
+    private PlayerCharacter selectedCharacter;
+    private TextChannel channel;
 
     public PlayerProfile (String id, String name) {
         this.id = id;
@@ -36,5 +40,13 @@ public class PlayerProfile implements Serializable {
 
     public String getId() {
         return id;
+    }
+
+    public PlayerCharacter getSelectedCharacter() {
+        return selectedCharacter;
+    }
+
+    public TextChannel getChannel() {
+        return channel;
     }
 }

@@ -1,5 +1,9 @@
 package me.SteamPunkBot.bot.event;
 
+import java.util.List;
+
 public abstract class GameEvent {
-    public abstract void trigger();
+    public abstract String getDescription();
+    public List<GameEventOption> optionList;
+
 }

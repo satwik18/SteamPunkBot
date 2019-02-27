@@ -11,5 +11,6 @@ public class HelloCommand extends Command {
     @Override
     public void trigger(String[] args, GuildMessageReceivedEvent event) {
         event.getChannel().sendMessage("Hello " + event.getMember().getUser().getName() + "!").queue();
+
     }
 }
