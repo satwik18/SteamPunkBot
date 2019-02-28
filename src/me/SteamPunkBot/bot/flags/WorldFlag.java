@@ -1,9 +1,8 @@
 package me.SteamPunkBot.bot.flags;
 
-public class PlayerFlag {
-    private String name;
+public class WorldFlag {private String name;
 
-    public PlayerFlag(String name) {
+    public WorldFlag (String name) {
         this.name = name;
     }
 
