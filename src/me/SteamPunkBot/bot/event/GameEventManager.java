@@ -8,23 +8,21 @@ import java.util.List;
 
 public class GameEventManager {
     private GameEvent currentEvent;
-    private PlayerProfile profile;
 
-    public GameEventManager(PlayerProfile profile) {
-        this.profile = profile;
+    public GameEventManager() {
     }
 
-    public void choose(int num) throws IndexOutOfBoundsException{
-        List<GameEventOption> optionList = getAvailableOptions();
-        if(!(num < 1 || num > getAvailableOptions().size())) {
-            currentEvent = optionList.get(num).choose(profile);
+    public void choose(int num, PlayerProfile profile) throws IndexOutOfBoundsException {
+        List<GameEventOption> optionList = getAvailableOptions(profile);
+        if(!(num < 1 || num > optionList.size())) {
+            currentEvent = optionList.get(num - 1).choose(profile);
             //TODO add menu
         } else {
             throw new IndexOutOfBoundsException();
         }
     }
 
-    public List<GameEventOption> getAvailableOptions() {
+    public List<GameEventOption> getAvailableOptions(PlayerProfile profile) {
         List<GameEventOption> optionList = new ArrayList<>();
         for(GameEventOption o: currentEvent.getOptionList()) {
             if (o.isAvailable(profile)) optionList.add(o);

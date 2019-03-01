@@ -1,40 +1,25 @@
 package me.SteamPunkBot.bot.game;
 
-import me.SteamPunkBot.bot.character.PlayerCharacter;
-import me.SteamPunkBot.bot.character.PlayerProfile;
+import me.SteamPunkBot.bot.server.GameServer;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
 
-    private static List<PlayerProfile> playerProfileList;
+    private static List<GameServer> serverList;
 
     public static void init() {
-        playerProfileList = new ArrayList<>();
+        serverList = new ArrayList<>();
     }
 
-    public static void addPlayer(PlayerProfile playerProfile) {
-        playerProfileList.add(playerProfile);
-    }
-
-    public static List<PlayerProfile> getPlayerProfileList() {
-        return playerProfileList;
-    }
-
-    public static Boolean isExistingProfile(String id) {
-        for(int i = 0; i < playerProfileList.size(); i++) {
-            if(id.equalsIgnoreCase(playerProfileList.get(i).getId()))
-                return true;
+    public static GameServer getServer(String id) {
+        for(int i = 0; i < serverList.size(); i++) {
+            if(serverList.get(i).equals(id))
+                return serverList.get(i);
         }
-        return false; //If it cannot find a matching id, return false
-    }
-
-    public static PlayerProfile getProfile(String id) {
-        for(int i = 0; i < playerProfileList.size(); i++) {
-            if(id.equalsIgnoreCase(playerProfileList.get(i).getId()))
-                return playerProfileList.get(i);
-        }
-        return null; //If it cannot find a matching id, return null
+        GameServer server = new GameServer(id);
+        serverList.add(server);
+        return server; // Returns new server of id if it doesn't exist
     }
 }

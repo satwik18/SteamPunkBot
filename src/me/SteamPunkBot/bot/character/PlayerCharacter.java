@@ -13,7 +13,7 @@ public class PlayerCharacter {
 
     public PlayerCharacter(String characterName, PlayerProfile profile) {
         this.characterName = characterName;
-        eventManager = new GameEventManager(profile);
+        eventManager = new GameEventManager();
         flagList = new ArrayList<>();
     }
 
