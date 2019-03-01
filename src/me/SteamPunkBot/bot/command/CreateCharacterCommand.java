@@ -18,7 +18,7 @@ public class CreateCharacterCommand extends Command {
         if(args.length == 2) {
             if(Game.isExistingProfile(event.getAuthor().getId())) {
                 if(Game.getProfile(event.getAuthor().getId()).getCharacterNum() < GameProperties.PLAYERCHARACTER_LIMIT) {
-                    Game.getProfile(event.getAuthor().getId()).addCharacter(new PlayerCharacter(args[1]));
+                    Game.getProfile(event.getAuthor().getId()).addCharacter(new PlayerCharacter(args[1], Game.getProfile(event.getAuthor().getId())));
                 } else {
                     event.getChannel().sendMessage(GameProperties.PLAYERCHARACTER_LIMIT_ERROR).queue();
                 }

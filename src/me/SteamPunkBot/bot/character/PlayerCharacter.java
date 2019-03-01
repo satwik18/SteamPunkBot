@@ -11,15 +11,15 @@ public class PlayerCharacter {
     private GameEventManager eventManager;
     private List<PlayerFlag> flagList;
 
-    public PlayerCharacter(String characterName) {
+    public PlayerCharacter(String characterName, PlayerProfile profile) {
         this.characterName = characterName;
-        eventManager = new GameEventManager();
+        eventManager = new GameEventManager(profile);
         flagList = new ArrayList<>();
     }
 
     public Boolean hasFlag(PlayerFlag flag) {
         for(int i = 0; i < flagList.size(); i++) {
-            if (flagList.get(i) == flag)
+            if (flagList.get(i).equals(flag))
                 return true;
         }
         return false;

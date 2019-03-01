@@ -10,4 +10,8 @@ public class PlayerFlag {
     public String getName() {
         return name;
     }
+
+    public boolean equals(PlayerFlag flag) {
+        return getName() == flag.getName();
+    }
 }
