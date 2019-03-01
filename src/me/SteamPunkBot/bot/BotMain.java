@@ -21,7 +21,7 @@ public class BotMain {
         String token = reader.nextLine();
         jda = new JDABuilder(AccountType.BOT).setToken(token).build();
 
-        EventListener listener = new EventListener();
+        GameEventListener listener = new GameEventListener();
         listener.addCommand(new HelloCommand());
         listener.addCommand(new IdCommand());
         listener.addCommand(new CreateCharacterCommand());

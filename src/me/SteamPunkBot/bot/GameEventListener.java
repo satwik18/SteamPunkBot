@@ -7,10 +7,10 @@ import net.dv8tion.jda.core.hooks.ListenerAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EventListener extends ListenerAdapter {
+public class GameEventListener extends ListenerAdapter {
     private List<Command> commandList;
 
-    public EventListener() {
+    public GameEventListener() {
         commandList = new ArrayList<>();
     }
 
