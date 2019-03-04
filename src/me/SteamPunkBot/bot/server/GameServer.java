@@ -1,6 +1,8 @@
 package me.SteamPunkBot.bot.server;
 
 import me.SteamPunkBot.bot.character.PlayerProfile;
+import me.SteamPunkBot.bot.command.Command;
+import me.SteamPunkBot.bot.command.CreateProfileCommand;
 
 import java.util.ArrayList;
 import java.util.List;

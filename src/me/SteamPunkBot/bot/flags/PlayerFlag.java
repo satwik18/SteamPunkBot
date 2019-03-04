@@ -12,6 +12,10 @@ public class PlayerFlag {
     }
 
     public boolean equals(PlayerFlag flag) {
-        return getName() == flag.getName();
+        return getName().equals(flag.getName());
+    }
+
+    public boolean equals(String flagName) {
+        return getName().equals(flagName);
     }
 }

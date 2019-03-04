@@ -11,4 +11,7 @@ public class GameProperties {
 
     //PLAYER CHARACTERS
     public static final String NO_PLAYER_CHARACTERS_ERROR = "**ERROR** You do not currently have any characters. Use `!CreateCharacter [Name]` to create one.";
+
+    //COMMANDS
+    public static final String INVALID_COMMAND_INPUT_ERROR = "**ERROR** The Command input is invalid!";
 }

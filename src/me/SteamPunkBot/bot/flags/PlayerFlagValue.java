@@ -15,4 +15,13 @@ public class PlayerFlagValue extends PlayerFlag {
     public void setValue(int value) {
         this.value = value;
     }
+
+    @Override
+    public boolean equals(PlayerFlag flag) {
+        if(flag instanceof  PlayerFlagValue) {
+            return value == ((PlayerFlagValue) flag).getValue() && super.getName().equals(flag.getName());
+        } else {
+            return false;
+        }
+    }
 }

@@ -16,10 +16,11 @@ public class PlayerProfile implements Serializable {
     private PlayerCharacter selectedCharacter;
     private TextChannel channel;
 
-    public PlayerProfile (String id, String name) {
+    public PlayerProfile (String id, String name, TextChannel channel) {
         this.id = id;
         this.name = name;
         characterList = new ArrayList<>();
+        this.channel = channel;
     }
 
     public List<PlayerCharacter> getCharacterList () {
@@ -29,6 +30,9 @@ public class PlayerProfile implements Serializable {
     public void addCharacter (PlayerCharacter character) {
         if(getCharacterNum() < GameProperties.PLAYERCHARACTER_LIMIT) {
             characterList.add(character);
+            if(selectedCharacter == null) {
+                selectedCharacter = character;
+            }
         } else {
             //Error
         }

@@ -16,7 +16,7 @@ public class CreateProfileCommand extends Command {
     public void trigger(String[] args, GuildMessageReceivedEvent event) {
         GameServer server = Game.getServer(event.getGuild().getId());
         if(!server.isExistingProfile(event.getAuthor().getId())) {
-            server.addPlayer(new PlayerProfile(event.getAuthor().getId(), event.getAuthor().getName()));
+            server.addPlayer(new PlayerProfile(event.getAuthor().getId(), event.getAuthor().getName(), event.getChannel()));
             event.getChannel().sendMessage("Created Profile for " + event.getAuthor().getName() + "!").queue();
         } else {
             event.getChannel().sendMessage(GameProperties.PLAYER_PROFILE_EXISTS_ERROR).queue();
