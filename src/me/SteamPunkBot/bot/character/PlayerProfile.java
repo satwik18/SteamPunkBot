@@ -12,7 +12,7 @@ public class PlayerProfile implements Serializable {
     private String name;
     private List<PlayerCharacter> characterList;
     private PlayerCharacter selectedCharacter;
-    private TextChannel channel;
+    private TextChannel channel; //Most recent text channel for profile
 
     /**
      * Creates a Profile for a Discord User
@@ -46,19 +46,43 @@ public class PlayerProfile implements Serializable {
         }
     }
 
+    /**
+     * Getter for the size of the character list
+     * @return integer number of characters
+     */
     public int getCharacterNum() {
         return characterList.size();
     }
 
+    /**
+     * Getter for id of player
+     * @return String id
+     */
     public String getId() {
         return id;
     }
 
+    /**
+     * Getter for selected character
+     * @return PlayerCharacter selectedCharacter
+     */
     public PlayerCharacter getSelectedCharacter() {
         return selectedCharacter;
     }
 
+    /**
+     * Getter for most recent TextChannel
+     * @return TextChannel
+     */
     public TextChannel getChannel() {
         return channel;
+    }
+
+    /**
+     * Setter for most recent TextChannel
+     * @param channel TextChannel
+     */
+    public void setChannel(TextChannel channel) {
+        this.channel = channel;
     }
 }

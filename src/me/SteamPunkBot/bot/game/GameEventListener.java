@@ -1,6 +1,7 @@
 package me.SteamPunkBot.bot.game;
 
 import me.SteamPunkBot.bot.command.Command;
+import me.SteamPunkBot.bot.server.GameServer;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
@@ -17,10 +18,16 @@ public class GameEventListener extends ListenerAdapter {
     public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
         String[] args = event.getMessage().getContentRaw().split(" ");
 
-        if(!event.getMember().getUser().isBot())
-            for(Command c: commandList)
-                if(c.equals(args[0]))
+        if(!event.getMember().getUser().isBot()) {
+            GameServer server = Game.getServer(event.getGuild().getId());
+            if(server.isExistingProfile(event.getAuthor().getId()))
+                server.getProfile(event.getAuthor().getId()).setChannel(event.getChannel());
+            for (Command c : commandList) {
+                if (c.equals(args[0])) {
                     c.trigger(args, event);
+                }
+            }
+        }
     }
 
     public void addCommand(Command command) {
