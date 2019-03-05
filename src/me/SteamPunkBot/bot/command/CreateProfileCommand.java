@@ -9,7 +9,7 @@ import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 public class CreateProfileCommand extends Command {
     @Override
     public String getName() {
-        return "!CreateProfile";
+        return "CreateProfile";
     }
 
     @Override

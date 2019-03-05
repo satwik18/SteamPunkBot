@@ -9,11 +9,13 @@ import java.util.List;
 
 public class GameServer {
     private List<PlayerProfile> profileList;
-    private String id;
+    private final String id;
+    private String prefix; //Command prefix
 
     public GameServer(String id) {
         profileList = new ArrayList<>();
         this.id = id;
+        prefix = "!";
     }
 
     public void addPlayer(PlayerProfile playerProfile) {
@@ -50,5 +52,13 @@ public class GameServer {
 
     public String getId() {
         return id;
+    }
+
+    public String getPrefix() {
+        return prefix;
+    }
+
+    public void setPrefix(String prefix) {
+        this.prefix = prefix;
     }
 }

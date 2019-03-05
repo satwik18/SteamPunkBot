@@ -1,5 +1,7 @@
 package me.SteamPunkBot.bot.character;
 
+import me.SteamPunkBot.bot.flags.PlayerFlag;
+import me.SteamPunkBot.bot.flags.ProfileFlag;
 import me.SteamPunkBot.bot.game.GameProperties;
 import net.dv8tion.jda.core.entities.TextChannel;
 
@@ -11,6 +13,7 @@ public class PlayerProfile implements Serializable {
     private String id;
     private String name;
     private List<PlayerCharacter> characterList;
+    private List<ProfileFlag> flagList;
     private PlayerCharacter selectedCharacter;
     private TextChannel channel; //Most recent text channel for profile
 
@@ -24,7 +27,21 @@ public class PlayerProfile implements Serializable {
         this.id = id;
         this.name = name;
         characterList = new ArrayList<>();
+        flagList = new ArrayList<>();
         this.channel = channel;
+    }
+
+    /**
+     * Returns true or false depending on whether the profile has a given flag
+     * @param flag the given flag
+     * @return Boolean value whether the profile has the given flag
+     */
+    public Boolean hasFlag(ProfileFlag flag) {
+        for(int i = 0; i < flagList.size(); i++) {
+            if (flagList.get(i).getName().equalsIgnoreCase(flag.getName()))
+                return true;
+        }
+        return false;
     }
 
     /**

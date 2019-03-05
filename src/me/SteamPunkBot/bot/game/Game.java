@@ -1,6 +1,7 @@
 package me.SteamPunkBot.bot.game;
 
 import me.SteamPunkBot.bot.server.GameServer;
+import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +12,10 @@ public class Game {
 
     public static void init() {
         serverList = new ArrayList<>();
+    }
+
+    public static GameServer getServer(GuildMessageReceivedEvent event) {
+        return getServer(event.getGuild().getId());
     }
 
     public static GameServer getServer(String id) {

@@ -10,7 +10,7 @@ import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 public class ListCharactersCommand extends Command {
     @Override
     public String getName() {
-        return "!ListCharacters";
+        return "ListCharacters";
     }
 
     @Override

@@ -10,7 +10,7 @@ import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 public class ResumeCommand extends Command {
     @Override
     public String getName() {
-        return "!Resume";
+        return "Resume";
     }
 
     @Override

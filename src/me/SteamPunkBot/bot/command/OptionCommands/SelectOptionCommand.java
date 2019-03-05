@@ -8,11 +8,10 @@ import me.SteamPunkBot.bot.server.GameServer;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 
 public class SelectOptionCommand extends Command {
-    public static String FORMAT_ERROR = "Correct Format is `!#` where # is the number of the option you would like to select.";
+    public static String FORMAT_ERROR = "Correct Format is `#` where # is the number of the option you would like to select.";
 
     @Override
     public Boolean equals(String name) {
-        name = name.substring(1);
         int num;
         try {
             num = Integer.parseInt(name);
@@ -25,14 +24,14 @@ public class SelectOptionCommand extends Command {
 
     @Override
     public String getName() {
-        return "!select";
+        return "select";
     }
 
     @Override
     public void trigger(String[] args, GuildMessageReceivedEvent event) {
         if(args.length == 1) {
             try {
-                int num = Integer.parseInt(args[0].substring(1));
+                int num = Integer.parseInt(args[0]);
                 GameServer server = Game.getServer(event.getGuild().getId());
                 PlayerProfile profile = server.getProfile(event.getAuthor().getId());
                 try {

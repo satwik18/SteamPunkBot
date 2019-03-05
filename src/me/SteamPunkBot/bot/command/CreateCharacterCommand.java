@@ -7,11 +7,11 @@ import me.SteamPunkBot.bot.server.GameServer;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 
 public class CreateCharacterCommand extends Command {
-    private static final String INPUT_ERROR = "**ERROR** Command Usage is: `!CreateCharacter [name]`";
+    private static final String INPUT_ERROR[] = {"**ERROR** Command Usage is: `", "CreateCharacter [name]`"};
 
     @Override
     public String getName() {
-        return "!CreateCharacter";
+        return "CreateCharacter";
     }
 
     @Override
@@ -36,7 +36,7 @@ public class CreateCharacterCommand extends Command {
                 }
             }
         } else {
-            event.getChannel().sendMessage(INPUT_ERROR).queue();
+            event.getChannel().sendMessage(INPUT_ERROR[0] + Game.getServer(event).getPrefix() + INPUT_ERROR[1]).queue();
         }
     }
 }

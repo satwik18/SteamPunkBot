@@ -4,11 +4,11 @@ import me.SteamPunkBot.bot.character.PlayerProfile;
 import me.SteamPunkBot.bot.event.GameEvent;
 import me.SteamPunkBot.bot.flags.PlayerFlag;
 
-public class FlagOption extends GameEventOption {
+public class RemoveFlagOption extends GameEventOption {
     private GameEventOption option;
     private PlayerFlag flag;
 
-    FlagOption(GameEventOption option, PlayerFlag flag) {
+    public RemoveFlagOption (GameEventOption option, PlayerFlag flag) {
         this.option = option;
         this.flag = flag;
     }
@@ -20,11 +20,12 @@ public class FlagOption extends GameEventOption {
 
     @Override
     public Boolean isAvailable(PlayerProfile profile) {
-        return option.isAvailable(profile) && profile.getSelectedCharacter().hasFlag(flag);
+        return option.isAvailable(profile);
     }
 
     @Override
     public GameEvent choose(PlayerProfile profile) {
+        profile.getSelectedCharacter().removeFlag(flag);
         return option.choose(profile);
     }
 }

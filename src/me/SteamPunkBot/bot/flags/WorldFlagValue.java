@@ -15,4 +15,8 @@ public class WorldFlagValue extends WorldFlag {
     public void setValue(int value) {
         this.value = value;
     }
+
+    public boolean equals(WorldFlagValue flag) {
+        return value == flag.getValue() && super.equals(flag);
+    }
 }

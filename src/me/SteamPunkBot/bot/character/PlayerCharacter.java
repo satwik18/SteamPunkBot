@@ -2,6 +2,7 @@ package me.SteamPunkBot.bot.character;
 
 import me.SteamPunkBot.bot.event.GameEventManager;
 import me.SteamPunkBot.bot.flags.PlayerFlag;
+import me.SteamPunkBot.bot.flags.PlayerFlagValue;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,6 +53,68 @@ public class PlayerCharacter {
     }
 
     /**
+     * Removes flag from player flags
+     * @param flag
+     */
+    public void removeFlag(PlayerFlag flag) {
+        PlayerFlag remove = null;
+        for(PlayerFlag f: flagList) {
+            if(f.equals(flag)) {
+                remove = f;
+                break;
+            }
+        }
+        flagList.remove(remove);
+    }
+
+    /**
+     * Removes flag from player flags
+     * @param flagName
+     */
+    public void removeFlag(String flagName) {
+        for(int i = 0; i < flagList.size(); i++) {
+            if(flagList.get(i).equals(flagName)) {
+                flagList.remove(i);
+                i--;
+            }
+        }
+    }
+
+    /**
+     * Returns value of flag
+     * @param flag
+     * @return value
+     */
+    public int getValue(PlayerFlag flag) {
+        if(hasFlag(flag)) {
+            for(int i = 0; i < flagList.size(); i++) {
+                if(flag.getName().equalsIgnoreCase(flagList.get(i).getName()) && flagList.get(i) instanceof PlayerFlagValue)
+                    return ((PlayerFlagValue) flagList.get(i)).getValue();
+            }
+            return 0;
+        } else {
+            return 0;
+        }
+    }
+
+    /**
+     * Returns value of flag
+     * @param flagName
+     * @return value
+     */
+    public int getValue(String flagName) {
+        if(hasFlag(flagName)) {
+            for(int i = 0; i < flagList.size(); i++) {
+                if(flagList.get(i).getName().equalsIgnoreCase(flagName) && flagList.get(i) instanceof PlayerFlagValue)
+                    return ((PlayerFlagValue) flagList.get(i)).getValue();
+            }
+            return 0;
+        } else {
+            return 0;
+        }
+    }
+
+    /**
      * Getter for character name
      * @return String character name
      */
@@ -67,6 +130,10 @@ public class PlayerCharacter {
         return eventManager;
     }
 
+    /**
+     * Getter for list of player flags
+     * @return flagList
+     */
     public List<PlayerFlag> getFlagList() {
         return flagList;
     }

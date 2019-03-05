@@ -1,9 +1,9 @@
 package me.SteamPunkBot.bot.flags;
 
-public class PlayerFlagValue extends PlayerFlag {
+public class ProfileFlagValue extends ProfileFlag {
     private int value;
 
-    public PlayerFlagValue(String name, int value) {
+    public ProfileFlagValue(String name, int value) {
         super(name);
         this.value = value;
     }
@@ -16,7 +16,7 @@ public class PlayerFlagValue extends PlayerFlag {
         this.value = value;
     }
 
-    public boolean equals(PlayerFlagValue flag) {
+    public boolean equals(ProfileFlagValue flag) {
         return value == flag.getValue() && super.equals(flag);
     }
 }
