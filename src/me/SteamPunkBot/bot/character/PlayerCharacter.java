@@ -17,30 +17,52 @@ public class PlayerCharacter {
         flagList = new ArrayList<>();
     }
 
+    /**
+     * Returns true or false depending on whether the player has a given flag
+     * @param flag the given flag
+     * @return Boolean value whether the player has the given flag
+     */
     public Boolean hasFlag(PlayerFlag flag) {
         for(int i = 0; i < flagList.size(); i++) {
-            if (flagList.get(i).equals(flag))
+            if (flagList.get(i).getName().equalsIgnoreCase(flag.getName()))
                 return true;
         }
         return false;
     }
 
+    /**
+     * Returns true or false depending on whether the player has a given flag
+     * @param flagName the String name of the flag
+     * @return Boolean value whether the player has the given flag
+     */
     public Boolean hasFlag(String flagName) {
         for(int i = 0; i < flagList.size(); i++) {
-            if (flagList.get(i).equals(flagName))
+            if (flagList.get(i).getName().equalsIgnoreCase(flagName))
                 return true;
         }
         return false;
     }
 
+    /**
+     * Adds flag to player flags
+     * @param flag
+     */
     public void addFlag(PlayerFlag flag) {
         flagList.add(flag);
     }
 
+    /**
+     * Getter for character name
+     * @return String character name
+     */
     public String getCharacterName() {
         return characterName;
     }
 
+    /**
+     * Getter for player eventmanager
+     * @return EventManager
+     */
     public GameEventManager getEventManager() {
         return eventManager;
     }

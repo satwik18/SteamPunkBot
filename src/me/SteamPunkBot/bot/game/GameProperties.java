@@ -14,4 +14,5 @@ public class GameProperties {
 
     //COMMANDS
     public static final String INVALID_COMMAND_INPUT_ERROR = "**ERROR** The Command input is invalid!";
+    public static final String INVALID_SELECTION_ERROR = "**ERROR** The Command input is invalid!";
 }

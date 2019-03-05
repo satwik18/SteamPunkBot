@@ -35,7 +35,12 @@ public class SelectOptionCommand extends Command {
                 int num = Integer.parseInt(args[0].substring(1));
                 GameServer server = Game.getServer(event.getGuild().getId());
                 PlayerProfile profile = server.getProfile(event.getAuthor().getId());
-                profile.getSelectedCharacter().getEventManager().choose(num, profile);
+                try {
+                    profile.getSelectedCharacter().getEventManager().choose(num, profile);
+                }
+                catch (IndexOutOfBoundsException e) {
+                    profile.getChannel().sendMessage(GameProperties.INVALID_SELECTION_ERROR).queue();
+                }
             }
             catch (NumberFormatException e) {
                 event.getChannel().sendMessage(GameProperties.INVALID_COMMAND_INPUT_ERROR).queue();

@@ -3,11 +3,9 @@ package me.SteamPunkBot.bot.character;
 import me.SteamPunkBot.bot.game.GameProperties;
 import net.dv8tion.jda.core.entities.TextChannel;
 
-import javax.xml.soap.Text;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
 
 public class PlayerProfile implements Serializable {
     private String id;
@@ -16,6 +14,12 @@ public class PlayerProfile implements Serializable {
     private PlayerCharacter selectedCharacter;
     private TextChannel channel;
 
+    /**
+     * Creates a Profile for a Discord User
+     * @param id The String id of the Discord user
+     * @param name The name of the Discord user
+     * @param channel The textchannel
+     */
     public PlayerProfile (String id, String name, TextChannel channel) {
         this.id = id;
         this.name = name;
@@ -23,6 +27,10 @@ public class PlayerProfile implements Serializable {
         this.channel = channel;
     }
 
+    /**
+     * getter function for the List of characters
+     * @return List of PlayerCharacters characterList
+     */
     public List<PlayerCharacter> getCharacterList () {
         return characterList;
     }
